@@ -1,7 +1,7 @@
 {
-	"name": "remotion-template",
+	"name": "@pierreminiggio/spinning-manager-clip-maker",
 	"version": "1.0.0",
-	"description": "My Remotion video",
+	"description": "Spinning Manager Clip Maker",
 	"scripts": {
 		"start": "remotion preview src/index.tsx --props=props.json",
 		"build": "remotion render src/index.tsx ClipMaker out.mp4 --props=props.json",
