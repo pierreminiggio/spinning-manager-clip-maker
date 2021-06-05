@@ -3,11 +3,13 @@
 	"version": "1.0.0",
 	"description": "Spinning Manager Clip Maker",
 	"scripts": {
-		"start": "remotion preview src/index.tsx --props=props.json",
-		"build": "remotion render src/index.tsx ClipMaker out.mp4 --props=props.json",
+		"start": "remotion preview src/index.tsx",
+		"build": "remotion render src/index.tsx ClipMaker out.mp4",
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
-		"test": "eslint src --ext ts,tsx,js,jsx && tsc"
+		"test": "eslint src --ext ts,tsx,js,jsx && tsc",
+		"build-tsc": "tsc -d",
+		"watch-tsc": "tsc -w"
 	},
 	"repository": {},
 	"license": "UNLICENSED",
