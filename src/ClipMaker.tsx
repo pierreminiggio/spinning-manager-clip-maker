@@ -12,11 +12,12 @@ export const ClipMaker: React.FC<{
 
 	return (
 		<>
-			{clips.map(clip => {
+			{clips.map((clip, clipIndex) => {
 				const clipStart = clip.from
 				const durationInFrames = clip.durationInFrames
 
 				const sequence = <Sequence
+					key={clipIndex}
 					from={from}
 					durationInFrames={durationInFrames}
 				>
