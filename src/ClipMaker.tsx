@@ -1,9 +1,10 @@
 import { FixedSizeArray } from 'fixed-size-array';
-import { Sequence, useCurrentFrame, Video } from "remotion";
+import { Sequence, useCurrentFrame, useVideoConfig, Video } from "remotion";
 import ClipMakerProps from "./Entity/ClipMakerProps";
 import Move from "./Entity/Move";
 import Moves from "./Entity/Moves";
 import Transition from './Entity/Transition';
+import TextSequence from './TextSequence';
 
 export const ClipMaker: React.FC<{
 	props: string;
@@ -11,7 +12,9 @@ export const ClipMaker: React.FC<{
 	
 	const clipMakerProps: ClipMakerProps = JSON.parse(props)
 	const clips = clipMakerProps.clips
+	const texts = clipMakerProps.texts
 	const frame = useCurrentFrame()
+	const {height} = useVideoConfig()
 
 	let from = 0
 
@@ -62,6 +65,7 @@ export const ClipMaker: React.FC<{
 
 				return sequence
 			})}
+			{texts.map((text, textIndex) => <TextSequence key={textIndex} height={height} text={text} />)}
 		</>
 	);
 };
