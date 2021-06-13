@@ -6,4 +6,7 @@ export default interface Text {
   color: string
   backgroundColor: string
   backgroundColorOpacity: number
+  leftOffset: number
+  rightOffset: number
+  topOffset: number
 }
