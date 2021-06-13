@@ -5,4 +5,5 @@ export default interface Text {
   height: number
   color: string
   backgroundColor: string
+  backgroundColorOpacity: number
 }

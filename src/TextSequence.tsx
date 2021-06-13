@@ -10,8 +10,11 @@ interface TextSequenceProps {
 export default function TextSequence({ height, text }: TextSequenceProps) {
 	const fontWeight = Math.round(height * text.height / 100)
 	const backgroundColor = text.backgroundColor
-	const shadowWidth = fontWeight / 3 + 'px'
-	const shadowHeight = fontWeight / 6 + 'px'
+	const shadowWidth = fontWeight / 3
+	const shadowHeight = fontWeight / 6
+	const shadowWidthPx = shadowWidth + 'px'
+	const shadowHeightPx = shadowHeight + 'px'
+	const twoShadowHeightPx = shadowHeight * 2 + 'px'
   return <Sequence
 		from={text.from}
 		durationInFrames={text.durationInFrames}
@@ -22,26 +25,34 @@ export default function TextSequence({ height, text }: TextSequenceProps) {
 			lineHeight: 1.15,
 			color: text.color,
 			textAlign: 'center',
-			padding: '0.16em'
+			paddingTop: 'calc(' + twoShadowHeightPx + ' + 0px)',
+			position: 'relative',
+			width: '100%'
 		}}>
-			<span style={{
-				backgroundColor: backgroundColor,
-				boxShadow:
-				shadowWidth + ' 0 0 '
-					+ backgroundColor
-					+ ',-' + shadowWidth + ' 0 0 '
-					+ backgroundColor
-					+ ',' + shadowWidth + ' ' + shadowHeight + ' 0 '
-					+ backgroundColor
-					+ ',-' + shadowWidth + ' -' + shadowHeight + ' 0 '
-					+ backgroundColor
-					+ ',' + shadowWidth + ' -' + shadowHeight + ' 0 '
-					+ backgroundColor
-					+ ',-' + shadowWidth + ' ' + shadowHeight + ' 0 '
-					+ backgroundColor
-				,
-				textShadow: '0 0 100px ' + backgroundColor
-			}}>{text.content}</span>
+			<div style={{position: 'absolute', width: '100%'}}>
+				<span style={{
+					backgroundColor: backgroundColor,
+					color: 'transparent',
+					boxShadow:
+					shadowWidthPx + ' 0 0 '
+						+ backgroundColor
+						+ ',-' + shadowWidthPx + ' 0 0 '
+						+ backgroundColor
+						+ ',' + shadowWidthPx + ' ' + shadowHeightPx + ' 0 '
+						+ backgroundColor
+						+ ',-' + shadowWidthPx + ' -' + shadowHeightPx + ' 0 '
+						+ backgroundColor
+						+ ',' + shadowWidthPx + ' -' + shadowHeightPx + ' 0 '
+						+ backgroundColor
+						+ ',-' + shadowWidthPx + ' ' + shadowHeightPx + ' 0 '
+						+ backgroundColor
+					,
+					opacity: text.backgroundColorOpacity
+				}}>{text.content}</span>
+			</div>
+			<div style={{position: 'absolute', width: '100%'}}>
+				{text.content}
+			</div>
 		</div>
 	</Sequence>
 }
