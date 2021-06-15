@@ -8,6 +8,7 @@
 		"upgrade": "remotion upgrade",
 		"server": "ts-node server.tsx",
 		"test": "eslint src --ext ts,tsx,js,jsx && tsc",
+		"build-css": "cp ./src/font.css ./dist/font.css",
 		"build-tsc": "tsc -d",
 		"watch-tsc": "tsc -w"
 	},
