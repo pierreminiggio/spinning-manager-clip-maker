@@ -5,6 +5,22 @@ on:
         description: "Remotion Props"
         required: true
         default: "{}"
+      width:
+        description: "Width"
+        required: false
+        default: "1080"
+      height:
+        description: "Height"
+        required: false
+        default: "1920"
+      fps:
+        description: "FPS"
+        required: false
+        default: "1920"
+      durationInFrames:
+        description: "Duration in frames"
+        required: true
+        default: "0"
 name: Render video
 jobs:
   render:
