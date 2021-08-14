@@ -16,7 +16,7 @@ on:
       fps:
         description: "FPS"
         required: false
-        default: "1920"
+        default: "60"
       durationInFrames:
         description: "Duration in frames"
         required: true
